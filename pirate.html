@@ -35,7 +35,7 @@
    <p id="click here for help" style="color: rgb(255, 0, 81);font-family: 'Times New Roman', Times, serif;" onclick="help()">Click for
       help </p>
    <p id="help" style="color: rgb(255, 0, 81);font-family: 'Times New Roman', Times, serif;">Help report </p>
-   <div class="container">
+   <div class="container" >
       <div class="row">
          <div class="col-sm-2">
             <img src="first_image.jpg" id="1" width="120px" height="100px" onclick="check(0)">
@@ -124,6 +124,7 @@
 
 
    </div>
+   <button class="randBtn" onclick="randBtn()" style="background-color: #25a7c4;color:#000000;border-radius: 10px;">New Game</button>
 
 </body>
 <script>
@@ -184,6 +185,12 @@
       penalty=penalty+2;
       document.getElementById("penalty").innerHTML='Penalties:'+penalty;
 
+   }
+   function randBtn(){
+      let penalty=0;
+      let checkCount=0;
+      treasureLocation=Math.floor(Math.random()*25);
+      trapLocation=Math.floor(Math.random()*25);
    }
 
 </script>

@@ -17,24 +17,54 @@
   onclick="buttonPress2()">
   Click me change the color.</button>
   
-  <p id="target">Your time </p>
+  <p id="targeted">Your time </p>
   
   <script> 
-  reactTime="undefinded";
+  let endTime=Date.now();
+  let reactTime;
   function buttonPress1() {
     setTimeout(function(){
-      document.getElementById('target').style.color = "red"
+      document.getElementById('targeted').style.color = "red"
     }, 3000)
   }
 
   function buttonPress2() {
     setTimeout(()=>{
-      document.getElementById('target').style.color = "red"
+    document.getElementById('targeted').style.color = "red"
     }, 3000)
   }
 
   function recordTime(){
     console.log(Date.now()); 
+    reactTime=Date.now();
+    return reactTime;
+  }
+  function startTime(){
+    let loop=9;
+    let range = Math.floor(Math.random()*(10-2+1)+2) ;
+    
+
+    for(let i=0;i<range;i++){
+        setTimeout(()=>{
+      document.getElementById( "counter").innerHTML= 'Count: ' + i;
+    }, ((8-i)*1000))
+
+    setTimeout(() => {
+    },8000);
+        if(!reactTime){
+            document.getElementById("target").innerHTML = 'Your Time : ' +"Too Slow";
+            }  
+        else{
+            endTime=Date.now();
+            elapsedTime=Math.abs(endTime-reactTime);
+            document.getElementById("target").innerHTML='Time was: '+ elapsedTime;
+        }
+    }
+    //function randomStart(){
+       // startCount = Math.floor(Math.random()*(10-2+1)-2)
+        //document.getElementById("target").innerHTML = 'Your Time : ' +"Too Slow";
+        //startTime()
+    //}
   }
 
   </script>
@@ -46,13 +76,18 @@
 
   <button type="button"
   class="btn btn-primary"
-  onclick="recordTime()">
+  onclick="startTime()">
   Start Timer</button>
 
   <button type="button"
   class="btn btn-primary"
   onclick="recordTime()">
   React</button>
+
+  <button type="button"
+  class="btn btn-primary"
+  onclick="randomStart()">
+  Random Start</button>
 
   
 

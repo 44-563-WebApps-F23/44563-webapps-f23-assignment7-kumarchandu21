@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Merge</title>
+
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
+
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <h2>Kumar Chandu builds a merger</h2>
+   
+    <div class="flex-container" id="target">
+        <div class="merger">row item 1</div>
+        <div class="merger">row item 2</div>
+        <div class="merger">row item 3</div>
+    </div>
+
+    <p> Press the button to create an new element of type div and then add it to the container.
+    </p>
+    <div>
+        <input type="text" placeholder="enter text" id="merge">
+
+    </div><br>
+    <button onclick="addEnd()">Addend</button>
+    <button onclick="addFront()">Addfront</button>
+    <button onclick="remove()">Remove</button>
+
+
+</body>
+<script>
+    function remove() {
+        let mergerItems = document.getElementsByClassName("merger")
+        let length = mergerItems.length
+        if (length > 0) {
+            let index = Math.floor(length / 2);
+            mergerItems[index].remove();
+        }
+    }
+    function addFront() {
+        const newElement = document.createElement("div");
+        //let newElement = document.createElement("div")
+        newElement.innerHTML = document.getElementById("merge").value;
+        newElement.style.color = "blue";
+        newElement.className="merger";
+
+        let container = document.getElementById("target");
+        container.insertBefore(newElement, container.firstChild);
+
+
+    }
+    function addEnd() {
+        /* make the div and its text */
+        let element = document.createElement("div")
+        element.innerHTML = document.getElementById("merge").value;
+        element.style.color = "orange"
+        element.className="merger";
+
+        /* add it to the container */
+        let container = document.getElementById('target')
+        container.appendChild(element)
+
+    }
+</script>
+
+</html>
