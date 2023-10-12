@@ -26,29 +26,32 @@
                 background-color: green;
             }
         }
+        
     </style>
 </head>
 
 
 
 <body>
-    <h2>Kumar Chandu builds a merger</h2>
-   
+    <h2 style="color: rgb(58, 91, 162);">Kumar Chandu builds a merger</h2>
+
     <div class="flex-container" id="target">
         <div class="merger">row item 1</div>
         <div class="merger">row item 2</div>
         <div class="merger">row item 3</div>
     </div>
 
-    <p> Press the button to create an new element of type div and then add it to the container.
-    </p>
+    <br>
     <div>
         <input type="text" placeholder="enter text" id="merge">
 
     </div><br>
+    
     <button onclick="addEnd()">Addend</button>
     <button onclick="addFront()">Addfront</button>
     <button onclick="remove()">Remove</button>
+    <button onclick="swap()">Swap</button>
+    
 
 
 </body>
@@ -66,7 +69,7 @@
         //let newElement = document.createElement("div")
         newElement.innerHTML = document.getElementById("merge").value;
         newElement.style.color = "blue";
-        newElement.className="merger";
+        newElement.className = "merger";
 
         let container = document.getElementById("target");
         container.insertBefore(newElement, container.firstChild);
@@ -78,13 +81,26 @@
         let element = document.createElement("div")
         element.innerHTML = document.getElementById("merge").value;
         element.style.color = "orange"
-        element.className="merger";
+        element.className = "merger";
 
         /* add it to the container */
         let container = document.getElementById('target')
         container.appendChild(element)
 
     }
+    function swap() {
+        let swapItems = document.getElementsByClassName("merger");
+        let item1 = Math.floor(Math.random() * swapItems.length);
+        let item2 = Math.floor(Math.random() * swapItems.length);
+        let swap1 = document.getElementsByClassName("merger")[item1];
+        let swap2 = document.getElementsByClassName("merger")[item2];
+        if (swapItems.length > 1) {
+            let temp = swap1.innerHTML;
+            swap1.innerHTML = swap2.innerHTML;
+            swap2.innerHTML = temp;
+        }
+    }
+
 </script>
 
 </html>

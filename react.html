@@ -10,14 +10,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <h2>Timeout - Red in 3 seconds</h2>
 
-  <button type="button"
-  class="btn btn-primary"
-  onclick="buttonPress2()">
-  Click me change the color.</button>
-  
-  <p id="targeted">Your time </p>
+ 
   
   <script> 
   let endTime=Date.now();
@@ -41,10 +35,9 @@
   }
   function startTime(){
     let loop=9;
-    let range = Math.floor(Math.random()*(10-2+1)+2) ;
     
 
-    for(let i=0;i<range;i++){
+    for(let i=0;i<Math.floor(Math.random()*(10-2+1)-2);i++){
         setTimeout(()=>{
       document.getElementById( "counter").innerHTML= 'Count: ' + i;
     }, ((8-i)*1000))
@@ -60,16 +53,12 @@
             document.getElementById("target").innerHTML='Time was: '+ elapsedTime;
         }
     }
-    //function randomStart(){
-       // startCount = Math.floor(Math.random()*(10-2+1)-2)
-        //document.getElementById("target").innerHTML = 'Your Time : ' +"Too Slow";
-        //startTime()
-    //}
+  
   }
 
   </script>
 
-  <h1>Kumar speed check</h1>
+  <h1 style="color: rgb(101, 160, 126);">Kumar speed check</h1>
   <div id="target">Your time</div>
 
   <div id="counter">Count</div>
@@ -83,11 +72,6 @@
   class="btn btn-primary"
   onclick="recordTime()">
   React</button>
-
-  <button type="button"
-  class="btn btn-primary"
-  onclick="randomStart()">
-  Random Start</button>
 
   
 
